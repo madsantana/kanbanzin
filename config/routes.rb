@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'pages#home'
+  resources :kanbans
+  patch '/kanbans/:id/sort', to: 'kanbans#sort', as: "kanban_sort"
+  root to: 'kanbans#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

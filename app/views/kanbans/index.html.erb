@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>KanbanZin v0.1 - Meus Kanbans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Projeto:</th>
+      <th>Descrição:</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @kanbans.each do |kanban| %>
+      <tr>
+        <td><%= kanban.name %></td>
+        <td><%= kanban.description %></td>
+        <td><%= link_to 'Visualizar', kanban %></td>
+        <td><%= link_to 'Editar', edit_kanban_path(kanban) %></td>
+        <td><%= link_to 'Excluir', kanban, method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Novo Kanban', new_kanban_path %>
